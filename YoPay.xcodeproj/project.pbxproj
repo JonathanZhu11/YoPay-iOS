@@ -19,7 +19,7 @@
 		023AE5E91A0529EF00A3A789 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5E81A0529EF00A3A789 /* CFNetwork.framework */; };
 		023AE5EB1A0529F500A3A789 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5EA1A0529F500A3A789 /* Security.framework */; };
 		023AE5ED1A0529FA00A3A789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5EC1A0529FA00A3A789 /* Foundation.framework */; };
-		023AE6121A052E7D00A3A789 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE6111A052E7D00A3A789 /* SRWebSocket.m */; };
+		0289B6101A057CC400646A18 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 0289B60F1A057CC400646A18 /* SRWebSocket.m */; };
 		AF81DB6AC771E9200221CF3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FE3601725AC014192018A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -66,9 +66,9 @@
 		023AE5E81A0529EF00A3A789 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		023AE5EA1A0529F500A3A789 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		023AE5EC1A0529FA00A3A789 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		023AE60F1A052E7D00A3A789 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
-		023AE6101A052E7D00A3A789 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
-		023AE6111A052E7D00A3A789 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		0289B60D1A057CC400646A18 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		0289B60E1A057CC400646A18 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		0289B60F1A057CC400646A18 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		34FF32EF012EFB8A00A7C73A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		550FE3601725AC014192018A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F0CE0EDDABE808FEBE8E856 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 		023AE5591A04939300A3A789 /* YoPay */ = {
 			isa = PBXGroup;
 			children = (
-				023AE60D1A052E5B00A3A789 /* socket-rocket */,
+				0289B60C1A057CC400646A18 /* SocketRocket */,
 				023AE5D31A04BC1300A3A789 /* View Controllers */,
 				023AE55E1A04939300A3A789 /* AppDelegate.h */,
 				023AE55F1A04939300A3A789 /* AppDelegate.m */,
@@ -174,15 +174,14 @@
 			name = "View Controllers";
 			sourceTree = "<group>";
 		};
-		023AE60D1A052E5B00A3A789 /* socket-rocket */ = {
+		0289B60C1A057CC400646A18 /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
-				023AE60F1A052E7D00A3A789 /* SocketRocket-Prefix.pch */,
-				023AE6101A052E7D00A3A789 /* SRWebSocket.h */,
-				023AE6111A052E7D00A3A789 /* SRWebSocket.m */,
+				0289B60D1A057CC400646A18 /* SocketRocket-Prefix.pch */,
+				0289B60E1A057CC400646A18 /* SRWebSocket.h */,
+				0289B60F1A057CC400646A18 /* SRWebSocket.m */,
 			);
-			name = "socket-rocket";
-			path = "submodules/socket-rocket";
+			path = SocketRocket;
 			sourceTree = "<group>";
 		};
 		22DA6C3939A5359997C020D8 /* Frameworks */ = {
@@ -337,10 +336,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0289B6101A057CC400646A18 /* SRWebSocket.m in Sources */,
 				023AE5C91A04B8A000A3A789 /* StartViewController.m in Sources */,
 				023AE5601A04939300A3A789 /* AppDelegate.m in Sources */,
 				023AE55D1A04939300A3A789 /* main.m in Sources */,
-				023AE6121A052E7D00A3A789 /* SRWebSocket.m in Sources */,
 				023AE5CC1A04BA3500A3A789 /* NameListViewController.m in Sources */,
 				023AE5D21A04BC0200A3A789 /* SummaryViewController.m in Sources */,
 			);

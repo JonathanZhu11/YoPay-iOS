@@ -8,7 +8,7 @@
 
 #import "NameListViewController.h"
 #import "SummaryViewController.h"
-#import <SIOSocket/SIOSocket.h>
+#import "SocketIOPacket.h"
 
 @interface NameListViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *totalPrice;
@@ -18,28 +18,16 @@
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 - (IBAction)clickTest:(id)sender;
 
-@property SIOSocket *socket;
-
 @end
-
 @implementation NameListViewController 
 
 NSMutableArray *array;
-SRWebSocket *socketio;
+SocketIO *socketio;
 NSString *server = @"yopay.herokuapp.com";
 NSURLSession *session;
 
 - (void)viewDidLoad {
     [self init];
-    
-//    [SIOSocket socketWithHost: @"http://yopay.herokuapp.com" response: ^(SIOSocket *socket) {
-//        self.socket = socket;
-//        
-//        self.socket.onConnect = ^()
-//        {
-//            NSLog(@"Hello! We have connected!");
-//        };
-//    }];
     
     array =  [NSMutableArray arrayWithObjects: nil];
 
@@ -50,12 +38,6 @@ NSURLSession *session;
     [super viewDidLoad];
     
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 
 - (instancetype)init {
     NSLog(@"INITTING!");
@@ -71,42 +53,30 @@ NSURLSession *session;
     
     session = [NSURLSession sessionWithConfiguration:sessionConfig];
     
-    NSLog(@"Beginning Handshake");
-    [self initHandshake];
-    
+    NSLog(@"Beginning Connection");
+    socketio = [[SocketIO alloc] initWithDelegate:self];
+    [socketio connectToHost:server onPort: nil withParams: nil withNamespace:@"/generic"];
+
     return self;
 }
 
-- (void) initHandshake {
-    NSString *time = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970]];
-    NSString *endpoint = [NSString stringWithFormat: @"http://%@/socket.io/1?t=%@", server, time ];
-    
-    NSURLSessionTask *handshakeTask = [session dataTaskWithURL:[NSURL URLWithString:endpoint] completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSString *stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        NSArray *handshakeToken = [stringData componentsSeparatedByString:@":"];
-        NSLog(@"Handshake: %@", handshakeToken);
-        [self socketConnectWithToken:handshakeToken];
-    }];
-    
-    [handshakeTask resume];
+- (void) socketIODidConnect:(SocketIO *)socket
+{
+    NSLog(@"WE CONNECTED!!!");
+    NSLog(@"%@", socket);
 }
 
--(void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message {
-    NSLog(@"Message: %@", message);
-    
+// event delegate
+- (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
+{
+    NSLog(@"didReceiveEvent >>> data: %@", packet.data);
 }
 
-- (void) socketConnectWithToken: (NSArray *)token {
-    NSString *time = [NSString stringWithFormat:@"%.0f", [[NSDate date] timeIntervalSince1970]];
-    NSString *string = [NSString stringWithFormat:@"ws://%@/socket.io/1/xhr-polling/%@?t=%@", server, [token firstObject], time];
-    NSLog(@"URL : %@", string);
-    NSURL *url = [[NSURL alloc] initWithString:string];
-    NSLog(@"URL : %@", url);
-    socketio = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL: url]];
-    socketio.delegate = self;
-    [socketio open];
+// message delegate
+- (void) socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
+{
+    NSLog(@"didReceiveMessage >>> data: %@", packet.data);
 }
-
 
 - (void)textFieldDidChange {
     [self.listTable reloadData];

@@ -10,4 +10,7 @@
 
 @interface SummaryViewController : UIViewController
 
+@property NSArray *array;
+@property double totalPrice;
+
 @end

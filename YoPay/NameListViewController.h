@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SRWebSocket.h"
 
-@interface NameListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@interface NameListViewController : UIViewController <SRWebSocketDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end

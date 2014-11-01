@@ -17,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.array = [[NSArray alloc] initWithObjects:@"Jonathan Zhu", @"David Hao", @"Kai Yue", @"Kevin Shen", @"Your Mom", nil];
+
+    [self.summaryTable reloadData];
     // Do any additional setup after loading the view.
 }
 
@@ -25,17 +29,19 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.array count];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DoubleLabel"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Name"];
     
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:11];
-    label.text = [NSString stringWithFormat:@"%@", [self.array objectAtIndex:indexPath.row]];
-    
-    label = (UILabel *)[cell viewWithTag:12];
-    label.text = [NSString stringWithFormat:@"%.2f", self.totalPrice/(double)[self.array count]];
+    label.text = [NSString stringWithFormat:@"%@", [[self.array objectAtIndex:indexPath.row] uppercaseString]];
     
     return cell;
 }

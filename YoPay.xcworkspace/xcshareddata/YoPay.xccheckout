@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>43AC92FD7017ECDE18489EEA6AD2FD795E158D7E</key>
-		<string>..-iOS/socket.IO-objc/</string>
+		<string>..-iOS/socket.IO-objc</string>
 		<key>904FE7AB00CA15B1E9639B896509EF20BAC44DCF</key>
 		<string>..</string>
 	</dict>

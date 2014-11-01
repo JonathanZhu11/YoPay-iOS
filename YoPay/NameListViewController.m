@@ -70,13 +70,16 @@ NSURLSession *session;
 - (void) socketIO:(SocketIO *)socket didReceiveEvent:(SocketIOPacket *)packet
 {
     NSLog(@"didReceiveEvent >>> data: %@", packet.data);
+    NSArray *array = [packet.data componentsSeparatedByString:@":"];
+    NSLog(@"%@", [array lastObject]);
+    NSString *name = [array lastObject];
+    long nameLength = [name length];
+    NSString * strippedName = [[name substringToIndex:nameLength-3] substringFromIndex:2];
+    NSLog(@"%@", strippedName);
+    [self addNew:strippedName];
 }
 
-// message delegate
-- (void) socketIO:(SocketIO *)socket didReceiveMessage:(SocketIOPacket *)packet
-{
-    NSLog(@"didReceiveMessage >>> data: %@", packet.data);
-}
+
 
 - (void)textFieldDidChange {
     [self.listTable reloadData];
@@ -104,7 +107,7 @@ NSURLSession *session;
 
 - (BOOL) addNew:(NSString *)username {
     if(![array containsObject:username]) {
-        [array addObject:username];
+        [array insertObject:username atIndex:0];
         [self.listTable reloadData];
         return true;
     }

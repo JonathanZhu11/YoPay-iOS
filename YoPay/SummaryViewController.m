@@ -1,22 +1,22 @@
 //
-//  ViewController.m
+//  SummaryViewController.m
 //  YoPay
 //
 //  Created by Jonathan Zhu on 11/1/14.
 //  Copyright (c) 2014 com.YoPay. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "SummaryViewController.h"
 
-@interface ViewController ()
+@interface SummaryViewController ()
 
 @end
 
-@implementation ViewController
+@implementation SummaryViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {

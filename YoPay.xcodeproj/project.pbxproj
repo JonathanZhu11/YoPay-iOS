@@ -12,8 +12,8 @@
 		023AE5631A04939300A3A789 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5621A04939300A3A789 /* ViewController.m */; };
 		023AE5661A04939300A3A789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5641A04939300A3A789 /* Main.storyboard */; };
 		023AE5681A04939300A3A789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5671A04939300A3A789 /* Images.xcassets */; };
-		023AE56B1A04939300A3A789 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5691A04939300A3A789 /* LaunchScreen.xib */; };
 		023AE5771A04939300A3A789 /* YoPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5761A04939300A3A789 /* YoPayTests.m */; };
+		023AE5C91A04B8A000A3A789 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5C81A04B8A000A3A789 /* StartViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,10 +36,11 @@
 		023AE5621A04939300A3A789 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		023AE5651A04939300A3A789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		023AE5671A04939300A3A789 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		023AE56A1A04939300A3A789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		023AE5701A04939300A3A789 /* YoPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		023AE5751A04939300A3A789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023AE5761A04939300A3A789 /* YoPayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YoPayTests.m; sourceTree = "<group>"; };
+		023AE5C71A04B8A000A3A789 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		023AE5C81A04B8A000A3A789 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,8 +88,9 @@
 				023AE5621A04939300A3A789 /* ViewController.m */,
 				023AE5641A04939300A3A789 /* Main.storyboard */,
 				023AE5671A04939300A3A789 /* Images.xcassets */,
-				023AE5691A04939300A3A789 /* LaunchScreen.xib */,
 				023AE55A1A04939300A3A789 /* Supporting Files */,
+				023AE5C71A04B8A000A3A789 /* StartViewController.h */,
+				023AE5C81A04B8A000A3A789 /* StartViewController.m */,
 			);
 			path = YoPay;
 			sourceTree = "<group>";
@@ -200,7 +202,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				023AE5661A04939300A3A789 /* Main.storyboard in Resources */,
-				023AE56B1A04939300A3A789 /* LaunchScreen.xib in Resources */,
 				023AE5681A04939300A3A789 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023AE5631A04939300A3A789 /* ViewController.m in Sources */,
+				023AE5C91A04B8A000A3A789 /* StartViewController.m in Sources */,
 				023AE5601A04939300A3A789 /* AppDelegate.m in Sources */,
 				023AE55D1A04939300A3A789 /* main.m in Sources */,
 			);
@@ -250,14 +252,6 @@
 				023AE5651A04939300A3A789 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		023AE5691A04939300A3A789 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				023AE56A1A04939300A3A789 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -346,6 +340,7 @@
 				INFOPLIST_FILE = YoPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -356,6 +351,7 @@
 				INFOPLIST_FILE = YoPay/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

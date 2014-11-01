@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		023AE55D1A04939300A3A789 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE55C1A04939300A3A789 /* main.m */; };
+		023AE5601A04939300A3A789 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE55F1A04939300A3A789 /* AppDelegate.m */; };
+		023AE5631A04939300A3A789 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5621A04939300A3A789 /* ViewController.m */; };
+		023AE5661A04939300A3A789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5641A04939300A3A789 /* Main.storyboard */; };
+		023AE5681A04939300A3A789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5671A04939300A3A789 /* Images.xcassets */; };
+		023AE56B1A04939300A3A789 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5691A04939300A3A789 /* LaunchScreen.xib */; };
+		023AE5771A04939300A3A789 /* YoPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5761A04939300A3A789 /* YoPayTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		023AE5711A04939300A3A789 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 023AE54F1A04939300A3A789 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 023AE5561A04939300A3A789;
+			remoteInfo = YoPay;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		023AE5571A04939300A3A789 /* YoPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YoPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		023AE55B1A04939300A3A789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023AE55C1A04939300A3A789 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		023AE55E1A04939300A3A789 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		023AE55F1A04939300A3A789 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		023AE5611A04939300A3A789 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		023AE5621A04939300A3A789 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		023AE5651A04939300A3A789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		023AE5671A04939300A3A789 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		023AE56A1A04939300A3A789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		023AE5701A04939300A3A789 /* YoPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		023AE5751A04939300A3A789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023AE5761A04939300A3A789 /* YoPayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YoPayTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		023AE5541A04939300A3A789 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023AE56D1A04939300A3A789 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		023AE54E1A04939300A3A789 = {
+			isa = PBXGroup;
+			children = (
+				023AE5591A04939300A3A789 /* YoPay */,
+				023AE5731A04939300A3A789 /* YoPayTests */,
+				023AE5581A04939300A3A789 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		023AE5581A04939300A3A789 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				023AE5571A04939300A3A789 /* YoPay.app */,
+				023AE5701A04939300A3A789 /* YoPayTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		023AE5591A04939300A3A789 /* YoPay */ = {
+			isa = PBXGroup;
+			children = (
+				023AE55E1A04939300A3A789 /* AppDelegate.h */,
+				023AE55F1A04939300A3A789 /* AppDelegate.m */,
+				023AE5611A04939300A3A789 /* ViewController.h */,
+				023AE5621A04939300A3A789 /* ViewController.m */,
+				023AE5641A04939300A3A789 /* Main.storyboard */,
+				023AE5671A04939300A3A789 /* Images.xcassets */,
+				023AE5691A04939300A3A789 /* LaunchScreen.xib */,
+				023AE55A1A04939300A3A789 /* Supporting Files */,
+			);
+			path = YoPay;
+			sourceTree = "<group>";
+		};
+		023AE55A1A04939300A3A789 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				023AE55B1A04939300A3A789 /* Info.plist */,
+				023AE55C1A04939300A3A789 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		023AE5731A04939300A3A789 /* YoPayTests */ = {
+			isa = PBXGroup;
+			children = (
+				023AE5761A04939300A3A789 /* YoPayTests.m */,
+				023AE5741A04939300A3A789 /* Supporting Files */,
+			);
+			path = YoPayTests;
+			sourceTree = "<group>";
+		};
+		023AE5741A04939300A3A789 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				023AE5751A04939300A3A789 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		023AE5561A04939300A3A789 /* YoPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 023AE57A1A04939300A3A789 /* Build configuration list for PBXNativeTarget "YoPay" */;
+			buildPhases = (
+				023AE5531A04939300A3A789 /* Sources */,
+				023AE5541A04939300A3A789 /* Frameworks */,
+				023AE5551A04939300A3A789 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = YoPay;
+			productName = YoPay;
+			productReference = 023AE5571A04939300A3A789 /* YoPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+		023AE56F1A04939300A3A789 /* YoPayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 023AE57D1A04939300A3A789 /* Build configuration list for PBXNativeTarget "YoPayTests" */;
+			buildPhases = (
+				023AE56C1A04939300A3A789 /* Sources */,
+				023AE56D1A04939300A3A789 /* Frameworks */,
+				023AE56E1A04939300A3A789 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				023AE5721A04939300A3A789 /* PBXTargetDependency */,
+			);
+			name = YoPayTests;
+			productName = YoPayTests;
+			productReference = 023AE5701A04939300A3A789 /* YoPayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		023AE54F1A04939300A3A789 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = com.YoPay;
+				TargetAttributes = {
+					023AE5561A04939300A3A789 = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					023AE56F1A04939300A3A789 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = 023AE5561A04939300A3A789;
+					};
+				};
+			};
+			buildConfigurationList = 023AE5521A04939300A3A789 /* Build configuration list for PBXProject "YoPay" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 023AE54E1A04939300A3A789;
+			productRefGroup = 023AE5581A04939300A3A789 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				023AE5561A04939300A3A789 /* YoPay */,
+				023AE56F1A04939300A3A789 /* YoPayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		023AE5551A04939300A3A789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023AE5661A04939300A3A789 /* Main.storyboard in Resources */,
+				023AE56B1A04939300A3A789 /* LaunchScreen.xib in Resources */,
+				023AE5681A04939300A3A789 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023AE56E1A04939300A3A789 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		023AE5531A04939300A3A789 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023AE5631A04939300A3A789 /* ViewController.m in Sources */,
+				023AE5601A04939300A3A789 /* AppDelegate.m in Sources */,
+				023AE55D1A04939300A3A789 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		023AE56C1A04939300A3A789 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				023AE5771A04939300A3A789 /* YoPayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		023AE5721A04939300A3A789 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 023AE5561A04939300A3A789 /* YoPay */;
+			targetProxy = 023AE5711A04939300A3A789 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		023AE5641A04939300A3A789 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				023AE5651A04939300A3A789 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		023AE5691A04939300A3A789 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				023AE56A1A04939300A3A789 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		023AE5781A04939300A3A789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		023AE5791A04939300A3A789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		023AE57B1A04939300A3A789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YoPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		023AE57C1A04939300A3A789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = YoPay/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		023AE57E1A04939300A3A789 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YoPayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoPay.app/YoPay";
+			};
+			name = Debug;
+		};
+		023AE57F1A04939300A3A789 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = YoPayTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/YoPay.app/YoPay";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		023AE5521A04939300A3A789 /* Build configuration list for PBXProject "YoPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023AE5781A04939300A3A789 /* Debug */,
+				023AE5791A04939300A3A789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		023AE57A1A04939300A3A789 /* Build configuration list for PBXNativeTarget "YoPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023AE57B1A04939300A3A789 /* Debug */,
+				023AE57C1A04939300A3A789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		023AE57D1A04939300A3A789 /* Build configuration list for PBXNativeTarget "YoPayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				023AE57E1A04939300A3A789 /* Debug */,
+				023AE57F1A04939300A3A789 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 023AE54F1A04939300A3A789 /* Project object */;
+}

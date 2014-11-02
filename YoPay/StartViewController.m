@@ -85,6 +85,15 @@ BOOL allOK = NO;
     }
 }
 
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"StartToListSegue"])
+    {
+        NameListViewController *controller = (NameListViewController *)segue.destinationViewController;
+        controller.user = [[self.usernameField text] uppercaseString];
+    }
+}
+
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if(allOK) {
         return YES;

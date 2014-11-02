@@ -36,6 +36,8 @@ NSArray *colors;
     array =  [NSMutableArray arrayWithObjects: nil];
     colorArray =  [NSMutableArray arrayWithObjects: nil];
 
+    [self addNew: @"YOU"];
+    
     [self.totalPrice addTarget:self
                   action:@selector(textFieldDidChange)
         forControlEvents:UIControlEventEditingChanged];
@@ -151,14 +153,38 @@ NSArray *colors;
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if([segue.identifier isEqualToString:@"ListToSummarySegue"]){
         SummaryViewController *controller = (SummaryViewController *)segue.destinationViewController;
+        
+        double price = (int)([[self.totalPrice text] doubleValue]/[array count] * 100) / 100.0;
+        controller.personPrice = price;
+
+        [array removeLastObject];
         controller.array = array;
+        
+        [colorArray removeLastObject];
         controller.colorArray = colorArray;
         
-        if([array count] <= 0) {
-            controller.personPrice = 0;
-        } else {
-            controller.personPrice = [[self.totalPrice text] doubleValue]/[array count];
-        }
+        NSDictionary *body = @{@"users": array, @"amount": [NSNumber numberWithDouble:price]};
+        
+        NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
+        
+        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://yopay.herokuapp.com/finish/%@", self.user]]];
+        
+        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+        [urlRequest setHTTPMethod:@"POST"];
+        [urlRequest setHTTPBody: bodyData];
+        NSLog(@"%@", urlRequest);
+        NSURLResponse * response = nil;
+        NSError * error = nil;
+        /*NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                              returningResponse:&response
+                                                          error:&error];
+        */
+        /*if (error == nil)
+        {
+            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            NSLog(@"%@", jsonDictionary);
+        }*/
     }
 }
 

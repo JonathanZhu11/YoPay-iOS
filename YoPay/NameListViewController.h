@@ -11,5 +11,5 @@
 
 
 @interface NameListViewController : UIViewController <SocketIODelegate, UITableViewDelegate, UITableViewDataSource>
-
+@property NSString *user;
 @end

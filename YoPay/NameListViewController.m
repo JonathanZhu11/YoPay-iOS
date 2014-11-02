@@ -147,6 +147,7 @@ NSArray *colors;
 
 
 - (IBAction)clickFinish:(id)sender {
+    if ([array count] == 1) return;
     [socketio disconnect];
 }
 
@@ -162,6 +163,8 @@ NSArray *colors;
         
         [colorArray removeLastObject];
         controller.colorArray = colorArray;
+        
+        if ([array count] == 0) return;
         
         NSDictionary *body = @{@"users": array, @"amount": [NSNumber numberWithDouble:price]};
         
@@ -182,6 +185,7 @@ NSArray *colors;
         {
             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             
+            controller.failedUsers = jsonDictionary[@"failed_users"];
             NSLog(@"%@", jsonDictionary);
         }
     }
@@ -198,6 +202,7 @@ NSArray *colors;
 
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if ([array count] == 1) return NO;
     return YES;
 }
 

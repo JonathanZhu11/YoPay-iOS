@@ -13,5 +13,5 @@
 @property NSArray *array;
 @property NSArray *colorArray;
 @property double personPrice;
-
+@property NSArray *failedUsers;
 @end

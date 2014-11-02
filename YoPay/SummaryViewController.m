@@ -41,8 +41,19 @@
     cell.backgroundColor = [self.colorArray objectAtIndex:indexPath.row];
     UILabel *label;
     
+    NSString *user = [self.array objectAtIndex:indexPath.row];
     label = (UILabel *)[cell viewWithTag:11];
-    label.text = [NSString stringWithFormat:@"%@", [[self.array objectAtIndex:indexPath.row] uppercaseString]];
+    if ([self.failedUsers containsObject:user])
+    {
+        label.textColor = [UIColor colorWithRed:231/255.0f green:76/255.0f blue:60/255.0f alpha:1.0f];
+    }
+    else
+    {
+        label.textColor = [UIColor whiteColor];
+    }
+    
+    
+    label.text = [NSString stringWithFormat:@"%@", user];
     
     return cell;
 }

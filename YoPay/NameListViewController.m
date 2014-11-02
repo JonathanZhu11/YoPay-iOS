@@ -93,9 +93,18 @@ NSArray *colors;
     NSLog(@"didReceiveEvent >>> data: %@", packet.data);
     NSArray *array = [packet.data componentsSeparatedByString:@":"];
     NSString *name = [array lastObject];
+    NSString *event = [array objectAtIndex:[array count] - 2];
     long nameLength = [name length];
     NSString * strippedName = [[name substringToIndex:nameLength-3] substringFromIndex:2];
-    [self addNew:strippedName];
+    if ([event containsString:@"demo"])
+    {
+        NSLog(@"DEMO");
+        [self addNew:[@"demo " stringByAppendingString:strippedName]];
+    }
+    else
+    {
+        [self addNew:strippedName];
+    }
 }
 
 - (void)textFieldDidChange {
@@ -119,16 +128,24 @@ NSArray *colors;
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:11];
-    label.text = [NSString stringWithFormat:@"%@", [array objectAtIndex:indexPath.row]];
+    NSString *name = (NSString *)[array objectAtIndex:indexPath.row];
+    if ([name containsString:@"demo "])
+    {
+        label.text = [name substringFromIndex:5];
+    }
+    else
+    {
+        label.text = [NSString stringWithFormat:@"%@", name];
+    }
     
-    self.perPersonLabel.text = [NSString stringWithFormat:@"Each Person will pay: $%.2f", [[self.totalPrice text] doubleValue]/[array count]];
+    self.perPersonLabel.text = [NSString stringWithFormat:@"$%.2f", [[self.totalPrice text] doubleValue]/[array count]];
     
     return cell;
 }
 
 - (BOOL) addNew:(NSString *)username {
     
-    if(![array containsObject:username]) {
+    if(![array containsObject:username] && ![array containsObject:[@"demo " stringByAppendingString:username]]) {
         [array insertObject:username atIndex:0];
         
         while(true) {
@@ -167,27 +184,63 @@ NSArray *colors;
         
         if ([array count] == 0) return;
         
-        NSDictionary *body = @{@"users": array, @"amount": [NSNumber numberWithDouble:price]};
+        NSMutableArray *demoUsers = [NSMutableArray arrayWithObjects:nil];
+        NSMutableArray *fullUsers = [NSMutableArray arrayWithObjects:nil];
         
-        NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
+        for (int i = 0; i < [array count]; i++) {
+            NSString *user = [array objectAtIndex:i];
+            if ([user containsString:@"demo "])
+            {
+                [demoUsers addObject:[user substringFromIndex:5]];
+            }
+            else
+            {
+                [fullUsers addObject:user];
+            }
+        }
         
-        NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://yopay.herokuapp.com/finish/%@", self.user]]];
+        if ([fullUsers count] > 0)
+        {
+            NSDictionary *body = @{@"users": fullUsers, @"amount": [NSNumber numberWithDouble:price]};
         
-        [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [urlRequest setHTTPMethod:@"POST"];
-        [urlRequest setHTTPBody: bodyData];
-        NSLog(@"%@", urlRequest);
-        NSURLResponse * response = nil;
-        NSError * error = nil;
-        NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+            NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
+        
+            NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://yopay.herokuapp.com/finish/%@", self.user]]];
+        
+            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [urlRequest setHTTPMethod:@"POST"];
+            [urlRequest setHTTPBody: bodyData];
+            NSLog(@"%@", urlRequest);
+            NSURLResponse * response = nil;
+            NSError * error = nil;
+            NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
                                               returningResponse:&response
                                                           error:&error];
-        if (error == nil)
-        {
-            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            if (error == nil)
+            {
+                NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             
-            controller.failedUsers = jsonDictionary[@"failed_users"];
-            NSLog(@"%@", jsonDictionary);
+                controller.failedUsers = jsonDictionary[@"failed_users"];
+                NSLog(@"%@", jsonDictionary);
+            }
+        }
+        
+        if ([demoUsers count] > 0)
+        {
+            NSDictionary *body = @{@"users": demoUsers, @"amount": [NSNumber numberWithDouble:price]};
+            NSData *bodyData = [NSJSONSerialization dataWithJSONObject:body options:0 error:nil];
+            
+            NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://yopay.herokuapp.com/finish_demo/%@", self.user]]];
+            
+            [urlRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [urlRequest setHTTPMethod:@"POST"];
+            [urlRequest setHTTPBody: bodyData];
+            NSLog(@"%@", urlRequest);
+            NSURLResponse * response = nil;
+            NSError * error = nil;
+            NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                                  returningResponse:&response
+                                                              error:&error];
         }
     }
 }

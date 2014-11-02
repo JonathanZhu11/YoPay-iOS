@@ -172,6 +172,11 @@
                                         <color key="backgroundColor" red="0.0" green="0.69576889389999996" blue="0.89409722219999999" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="9Cm-Gb-nKa"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="leo-6j-smd" id="3Kp-5P-MIF"/>
                                     <outlet property="delegate" destination="leo-6j-smd" id="TPW-1U-AR3"/>
@@ -191,10 +196,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Each Person will pay: $0.00 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6S-sO-xgp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$0.00 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6S-sO-xgp">
                                 <rect key="frame" x="0.0" y="78" width="600" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="textColor" red="1" green="0.10015009929157537" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqc-qO-QHe">
@@ -221,6 +226,7 @@
                             <constraint firstItem="9jn-4T-dVx" firstAttribute="leading" secondItem="8uj-Dn-cry" secondAttribute="trailing" constant="8" id="3fh-5V-TYL"/>
                             <constraint firstItem="9jn-4T-dVx" firstAttribute="centerY" secondItem="8uj-Dn-cry" secondAttribute="centerY" id="4Op-AW-Jzo"/>
                             <constraint firstItem="5pJ-cf-wjL" firstAttribute="top" secondItem="dqc-qO-QHe" secondAttribute="bottom" constant="31" id="AsF-ZY-VPI"/>
+                            <constraint firstItem="26C-cN-fBz" firstAttribute="top" secondItem="G6S-sO-xgp" secondAttribute="bottom" constant="8" id="HVJ-sX-kPn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="G6S-sO-xgp" secondAttribute="trailing" constant="-16" id="J2E-ly-8QE"/>
                             <constraint firstItem="dqc-qO-QHe" firstAttribute="top" secondItem="26C-cN-fBz" secondAttribute="bottom" constant="8" id="K6b-z5-aRw"/>
                             <constraint firstAttribute="centerX" secondItem="8uj-Dn-cry" secondAttribute="centerX" constant="52" id="NyJ-QX-0MH"/>
@@ -232,7 +238,6 @@
                             <constraint firstAttribute="centerX" secondItem="G6S-sO-xgp" secondAttribute="centerX" id="pmG-I5-GvE"/>
                             <constraint firstAttribute="centerX" secondItem="dqc-qO-QHe" secondAttribute="centerX" id="qjW-L4-mO2"/>
                             <constraint firstItem="8uj-Dn-cry" firstAttribute="top" secondItem="5so-fU-nMp" secondAttribute="bottom" id="s4R-2C-2lj"/>
-                            <constraint firstItem="26C-cN-fBz" firstAttribute="top" secondItem="G6S-sO-xgp" secondAttribute="bottom" constant="8" id="zt6-6n-gVQ"/>
                         </constraints>
                     </view>
                     <connections>

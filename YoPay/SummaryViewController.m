@@ -52,8 +52,14 @@
         label.textColor = [UIColor whiteColor];
     }
     
-    
-    label.text = [NSString stringWithFormat:@"%@", user];
+    if ([user containsString: @"demo "])
+    {
+        label.text = [user substringFromIndex:5];
+    }
+    else
+    {
+        label.text = user;
+    }
     
     return cell;
 }

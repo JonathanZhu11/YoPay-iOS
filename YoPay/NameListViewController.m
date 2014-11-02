@@ -175,16 +175,15 @@ NSArray *colors;
         NSLog(@"%@", urlRequest);
         NSURLResponse * response = nil;
         NSError * error = nil;
-        /*NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+        NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
                                               returningResponse:&response
                                                           error:&error];
-        */
-        /*if (error == nil)
+        if (error == nil)
         {
             NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
             
             NSLog(@"%@", jsonDictionary);
-        }*/
+        }
     }
 }
 

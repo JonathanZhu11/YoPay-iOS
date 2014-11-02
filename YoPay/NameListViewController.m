@@ -130,7 +130,7 @@ NSArray *colors;
         [array insertObject:username atIndex:0];
         
         while(true) {
-            UIColor *chosenColor = [colors objectAtIndex:rand()%8];
+            UIColor *chosenColor = [colors objectAtIndex:rand()%7];
             if(chosenColor != [colorArray firstObject]) {
                 [colorArray insertObject:chosenColor atIndex:0];
                 break;
@@ -154,7 +154,6 @@ NSArray *colors;
         controller.array = array;
         controller.colorArray = colorArray;
         
-        
         if([array count] <= 0) {
             controller.personPrice = 0;
         } else {
@@ -162,6 +161,16 @@ NSArray *colors;
         }
     }
 }
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.totalPrice isFirstResponder] && [touch view] != self.totalPrice) {
+        [self.totalPrice resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
+
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     return YES;

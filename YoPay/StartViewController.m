@@ -12,10 +12,9 @@
 @interface StartViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 - (IBAction)pressStart:(id)sender;
+-(IBAction)textFieldReturn:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UILabel *errorLabel;
-
-
 @end
 
 @implementation StartViewController
@@ -31,8 +30,22 @@ BOOL allOK = NO;
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)textFieldReturn:(id)sender
+{
+    [sender resignFirstResponder];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    
+    UITouch *touch = [[event allTouches] anyObject];
+    if ([self.usernameField isFirstResponder] && [touch view] != self.usernameField) {
+        [self.usernameField resignFirstResponder];
+    }
+    [super touchesBegan:touches withEvent:event];
+}
 
 - (IBAction)pressStart:(id)sender {
+    
     NSString *server = @"yopay.herokuapp.com";
     NSString *username = [[self.usernameField text] uppercaseString];
     
@@ -58,7 +71,7 @@ BOOL allOK = NO;
             } else {
                 
                 NSString *url = [jsonDictionary objectForKey:@"url"];
-                [[self errorLabel] setText:@"Send a YO to YOPAYMAN to set up your account!"];
+                [[self errorLabel] setText:@"Send a Yo to YOPAYMAN to set up an account!"];
                 [[self errorLabel] setHidden:NO];
             }
             
@@ -70,8 +83,6 @@ BOOL allOK = NO;
         [[self errorLabel] setHidden:NO];
         
     }
-
-    
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {

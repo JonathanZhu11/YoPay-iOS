@@ -71,7 +71,7 @@ BOOL allOK = NO;
             } else {
                 
                 NSString *url = [jsonDictionary objectForKey:@"url"];
-                [[self errorLabel] setText:@"Send a Yo to YOPAYMAN to set up an account!"];
+                [[self errorLabel] setText:@"Link your Venmo account!"];
                 [[self errorLabel] setHidden:NO];
             }
             

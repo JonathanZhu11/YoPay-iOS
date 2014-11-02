@@ -41,7 +41,7 @@ NSArray *colors;
     [self.totalPrice addTarget:self
                   action:@selector(textFieldDidChange)
         forControlEvents:UIControlEventEditingChanged];
-    
+    [self.finishButton setEnabled:NO];
     [super viewDidLoad];
     
 }
@@ -62,7 +62,7 @@ NSArray *colors;
     
     NSLog(@"Beginning Connection");
     socketio = [[SocketIO alloc] initWithDelegate:self];
-    [socketio connectToHost:server onPort: nil withParams: nil withNamespace:@"/generic"];
+    [socketio connectToHost:server onPort: nil];
 
     return self;
 }
@@ -108,6 +108,14 @@ NSArray *colors;
 }
 
 - (void)textFieldDidChange {
+    if(![[self.totalPrice text] isEqualToString:@""] && [array count] > 1)
+    {
+        [self.finishButton setEnabled:YES];
+    }
+    else
+    {
+        [self.finishButton setEnabled:NO];
+    }
     [self.listTable reloadData];
 }
 
@@ -144,7 +152,10 @@ NSArray *colors;
 }
 
 - (BOOL) addNew:(NSString *)username {
-    
+    if (![[self.totalPrice text] isEqualToString:@""])
+    {
+        [self.finishButton setEnabled:YES];
+    }
     if(![array containsObject:username] && ![array containsObject:[@"demo " stringByAppendingString:username]]) {
         [array insertObject:username atIndex:0];
         

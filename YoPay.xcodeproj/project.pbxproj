@@ -25,6 +25,7 @@
 		636528E41A05857800EB7E24 /* SocketIOTransportWebsocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528C61A05857800EB7E24 /* SocketIOTransportWebsocket.m */; };
 		636528E51A05857800EB7E24 /* SocketIOTransportXHR.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528C81A05857800EB7E24 /* SocketIOTransportXHR.m */; };
 		636528F41A0585E700EB7E24 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528F31A0585E700EB7E24 /* SRWebSocket.m */; };
+		636528F81A06438700EB7E24 /* MontserratBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 636528F71A06438700EB7E24 /* MontserratBold.ttf */; };
 		AF81DB6AC771E9200221CF3F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 550FE3601725AC014192018A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		636528F11A0585E700EB7E24 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		636528F21A0585E700EB7E24 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		636528F31A0585E700EB7E24 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		636528F71A06438700EB7E24 /* MontserratBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MontserratBold.ttf; sourceTree = "<group>"; };
 		9F0CE0EDDABE808FEBE8E856 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +157,7 @@
 		023AE55A1A04939300A3A789 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				636528F71A06438700EB7E24 /* MontserratBold.ttf */,
 				023AE55B1A04939300A3A789 /* Info.plist */,
 				023AE55C1A04939300A3A789 /* main.m */,
 			);
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				023AE5681A04939300A3A789 /* Images.xcassets in Resources */,
+				636528F81A06438700EB7E24 /* MontserratBold.ttf in Resources */,
 				02DECE291A05B04A00C85949 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

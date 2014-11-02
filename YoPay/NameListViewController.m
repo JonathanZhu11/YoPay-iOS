@@ -148,6 +148,7 @@ NSArray *colors;
 
 - (IBAction)clickFinish:(id)sender {
     if ([array count] == 1) return;
+    if ([[self.totalPrice text] isEqualToString: @""]) return;
     [socketio disconnect];
 }
 
@@ -203,11 +204,7 @@ NSArray *colors;
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
     if ([array count] == 1) return NO;
+    if ([[self.totalPrice text] isEqualToString:@""]) return NO;
     return YES;
 }
-
-- (IBAction)clickTest:(id)sender {
-    [self addNew:[NSString stringWithFormat:@"Test Person %ld", [array count]]];
-}
-
 @end

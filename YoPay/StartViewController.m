@@ -7,14 +7,19 @@
 //
 
 #import "StartViewController.h"
+#import "NameListViewController.h"
 
 @interface StartViewController ()
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 - (IBAction)pressStart:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *usernameField;
+@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
+
 
 @end
 
 @implementation StartViewController
+BOOL allOK = NO;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -28,6 +33,53 @@
 
 
 - (IBAction)pressStart:(id)sender {
-    NSLog(@"Hello!");
+    NSString *server = @"yopay.herokuapp.com";
+    NSString *username = [[self.usernameField text] uppercaseString];
+    
+    if(![username isEqualToString:@""]) {
+        
+        [[self errorLabel] setHidden:YES];
+        
+        NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://%@/users/%@" ,server, username]]];
+        NSURLResponse * response = nil;
+        NSError * error = nil;
+        NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                              returningResponse:&response
+                                                          error:&error];
+        
+        if (error == nil)
+        {
+            NSDictionary *jsonDictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+            
+            
+            if([jsonDictionary count] == 0) {
+                allOK = YES;
+                [self performSegueWithIdentifier:@"StartToListSegue" sender:self];
+            } else {
+                
+                NSString *url = [jsonDictionary objectForKey:@"url"];
+                [[self errorLabel] setText:@"Send a YO to YOPAYMAN to set up your account!"];
+                [[self errorLabel] setHidden:NO];
+            }
+            
+            NSLog(@"%@", [jsonDictionary objectForKey:@"url"]);
+        }
+        
+    } else {
+        allOK = NO;
+        [[self errorLabel] setHidden:NO];
+        
+    }
+
+    
 }
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    if(allOK) {
+        return YES;
+    }
+    return NO;
+}
+
+
 @end

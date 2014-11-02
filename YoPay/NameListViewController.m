@@ -17,19 +17,24 @@
 - (IBAction)clickFinish:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *testButton;
 - (IBAction)clickTest:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *perPersonLabel;
 
 @end
+
 @implementation NameListViewController 
 
 NSMutableArray *array;
+NSMutableArray *colorArray;
 SocketIO *socketio;
 NSString *server = @"yopay.herokuapp.com";
 NSURLSession *session;
+NSArray *colors;
 
 - (void)viewDidLoad {
     [self init];
     
     array =  [NSMutableArray arrayWithObjects: nil];
+    colorArray =  [NSMutableArray arrayWithObjects: nil];
 
     [self.totalPrice addTarget:self
                   action:@selector(textFieldDidChange)
@@ -40,7 +45,7 @@ NSURLSession *session;
 }
 
 - (instancetype)init {
-    NSLog(@"INITTING!");
+    [self createColorSet];
     
     NSURLSessionConfiguration *sessionConfig = [NSURLSessionConfiguration defaultSessionConfiguration];
     
@@ -60,10 +65,24 @@ NSURLSession *session;
     return self;
 }
 
+- (void) createColorSet {
+    UIColor *turqoise = [UIColor colorWithRed:26/255. green:188/255. blue:156/255. alpha:1];
+    UIColor *emerald = [UIColor colorWithRed:46/255. green:204/255. blue:113/255. alpha:1];
+    UIColor *peter = [UIColor colorWithRed:52/255. green:152/255. blue:219/255. alpha:1];
+    UIColor *asphalt = [UIColor colorWithRed:52/255. green:73/255. blue:94/255. alpha:1];
+    UIColor *green = [UIColor colorWithRed:22/255. green:160/255. blue:133/255. alpha:1];
+    UIColor *sunflower = [UIColor colorWithRed:241/255. green:196/255. blue:15/255. alpha:1];
+    UIColor *belize = [UIColor colorWithRed:41/255. green:128/255. blue:185/255. alpha:1];
+    UIColor *wisteria = [UIColor colorWithRed:142/255. green:68/255. blue:173/255. alpha:1];
+    UIColor *alizarin = [UIColor colorWithRed:231/255. green:76/255. blue:60/255. alpha:1];
+    UIColor *amethyst = [UIColor colorWithRed:155/255. green:89/255. blue:182/255. alpha:1];
+    
+    colors = [[NSArray alloc] initWithObjects:turqoise, emerald, peter, asphalt, green, sunflower, belize, wisteria, alizarin, amethyst, nil];
+}
+
 - (void) socketIODidConnect:(SocketIO *)socket
 {
-    NSLog(@"WE CONNECTED!!!");
-    NSLog(@"%@", socket);
+    NSLog(@"Successful Connection");
 }
 
 // event delegate
@@ -71,15 +90,11 @@ NSURLSession *session;
 {
     NSLog(@"didReceiveEvent >>> data: %@", packet.data);
     NSArray *array = [packet.data componentsSeparatedByString:@":"];
-    NSLog(@"%@", [array lastObject]);
     NSString *name = [array lastObject];
     long nameLength = [name length];
     NSString * strippedName = [[name substringToIndex:nameLength-3] substringFromIndex:2];
-    NSLog(@"%@", strippedName);
     [self addNew:strippedName];
 }
-
-
 
 - (void)textFieldDidChange {
     [self.listTable reloadData];
@@ -92,22 +107,36 @@ NSURLSession *session;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //int x = arc4random()%[colors ];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"DoubleLabel"];
+    
+    UIColor *chosenColor = [colorArray objectAtIndex:indexPath.row];
+    NSLog(@"%@" , chosenColor);
+    cell.backgroundColor = chosenColor;
     
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:11];
     label.text = [NSString stringWithFormat:@"%@", [array objectAtIndex:indexPath.row]];
     
-    label = (UILabel *)[cell viewWithTag:12];
-    label.text = [NSString stringWithFormat:@"%.2f", [[self.totalPrice text] doubleValue]/[array count]];
+    self.perPersonLabel.text = [NSString stringWithFormat:@"Each Person will pay: $%.2f", [[self.totalPrice text] doubleValue]/[array count]];
     
     return cell;
 }
 
 - (BOOL) addNew:(NSString *)username {
+    
     if(![array containsObject:username]) {
         [array insertObject:username atIndex:0];
+        
+        while(true) {
+            UIColor *chosenColor = [colors objectAtIndex:rand()%8];
+            if(chosenColor != [colorArray firstObject]) {
+                [colorArray insertObject:chosenColor atIndex:0];
+                break;
+            }
+        }
+        
         [self.listTable reloadData];
         return true;
     }
@@ -116,17 +145,27 @@ NSURLSession *session;
 
 
 - (IBAction)clickFinish:(id)sender {
-    
+    [socketio disconnect];
 }
 
-//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-//    if([segue.identifier isEqualToString:@"toSummarySegue"]){
-//        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
-//        SummaryViewController *controller = (SummaryViewController *)navController.topViewController;
-//        controller.array = array;
-//        controller.totalPrice = [[self.totalPrice text] doubleValue];
-//    }
-//}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"ListToSummarySegue"]){
+        SummaryViewController *controller = (SummaryViewController *)segue.destinationViewController;
+        controller.array = array;
+        controller.colorArray = colorArray;
+        
+        
+        if([array count] <= 0) {
+            controller.personPrice = 0;
+        } else {
+            controller.personPrice = [[self.totalPrice text] doubleValue]/[array count];
+        }
+    }
+}
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    return YES;
+}
 
 - (IBAction)clickTest:(id)sender {
     [self addNew:[NSString stringWithFormat:@"Test Person %ld", [array count]]];

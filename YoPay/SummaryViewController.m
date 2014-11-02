@@ -10,6 +10,7 @@
 
 @interface SummaryViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *summaryTable;
+@property (weak, nonatomic) IBOutlet UILabel *moneyLabel;
 
 @end
 
@@ -18,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.array = [[NSArray alloc] initWithObjects:@"Jonathan Zhu", @"David Hao", @"Kai Yue", @"Kevin Shen", @"Your Mom", nil];
+    [self.moneyLabel setText:[NSString stringWithFormat:@"$%.2f", self.personPrice]];
 
     [self.summaryTable reloadData];
     // Do any additional setup after loading the view.
@@ -37,7 +38,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Name"];
-    
+    cell.backgroundColor = [self.colorArray objectAtIndex:indexPath.row];
     UILabel *label;
     
     label = (UILabel *)[cell viewWithTag:11];

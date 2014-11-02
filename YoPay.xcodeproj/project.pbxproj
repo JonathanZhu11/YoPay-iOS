@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		023AE55D1A04939300A3A789 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE55C1A04939300A3A789 /* main.m */; };
 		023AE5601A04939300A3A789 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE55F1A04939300A3A789 /* AppDelegate.m */; };
-		023AE5661A04939300A3A789 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5641A04939300A3A789 /* Main.storyboard */; };
 		023AE5681A04939300A3A789 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023AE5671A04939300A3A789 /* Images.xcassets */; };
 		023AE5771A04939300A3A789 /* YoPayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5761A04939300A3A789 /* YoPayTests.m */; };
 		023AE5C91A04B8A000A3A789 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 023AE5C81A04B8A000A3A789 /* StartViewController.m */; };
@@ -19,6 +18,7 @@
 		023AE5E91A0529EF00A3A789 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5E81A0529EF00A3A789 /* CFNetwork.framework */; };
 		023AE5EB1A0529F500A3A789 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5EA1A0529F500A3A789 /* Security.framework */; };
 		023AE5ED1A0529FA00A3A789 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 023AE5EC1A0529FA00A3A789 /* Foundation.framework */; };
+		02DECE291A05B04A00C85949 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02DECE271A05B04A00C85949 /* Main.storyboard */; };
 		636528E11A05857800EB7E24 /* SocketIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528BF1A05857800EB7E24 /* SocketIO.m */; };
 		636528E21A05857800EB7E24 /* SocketIOJSONSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528C11A05857800EB7E24 /* SocketIOJSONSerialization.m */; };
 		636528E31A05857800EB7E24 /* SocketIOPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 636528C31A05857800EB7E24 /* SocketIOPacket.m */; };
@@ -56,7 +56,6 @@
 		023AE55C1A04939300A3A789 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		023AE55E1A04939300A3A789 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		023AE55F1A04939300A3A789 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		023AE5651A04939300A3A789 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		023AE5671A04939300A3A789 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		023AE5701A04939300A3A789 /* YoPayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YoPayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		023AE5751A04939300A3A789 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,6 +70,7 @@
 		023AE5E81A0529EF00A3A789 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		023AE5EA1A0529F500A3A789 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		023AE5EC1A0529FA00A3A789 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		02DECE281A05B04A00C85949 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		34FF32EF012EFB8A00A7C73A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		550FE3601725AC014192018A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		636528BE1A05857800EB7E24 /* SocketIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketIO.h; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 				023AE5D31A04BC1300A3A789 /* View Controllers */,
 				023AE55E1A04939300A3A789 /* AppDelegate.h */,
 				023AE55F1A04939300A3A789 /* AppDelegate.m */,
-				023AE5641A04939300A3A789 /* Main.storyboard */,
+				02DECE261A05B04A00C85949 /* Base.lproj */,
 				023AE5671A04939300A3A789 /* Images.xcassets */,
 				023AE55A1A04939300A3A789 /* Supporting Files */,
 			);
@@ -189,6 +189,14 @@
 				023AE5D11A04BC0200A3A789 /* SummaryViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		02DECE261A05B04A00C85949 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				02DECE271A05B04A00C85949 /* Main.storyboard */,
+			);
+			path = Base.lproj;
 			sourceTree = "<group>";
 		};
 		22DA6C3939A5359997C020D8 /* Frameworks */ = {
@@ -319,8 +327,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023AE5661A04939300A3A789 /* Main.storyboard in Resources */,
 				023AE5681A04939300A3A789 /* Images.xcassets in Resources */,
+				02DECE291A05B04A00C85949 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,10 +412,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		023AE5641A04939300A3A789 /* Main.storyboard */ = {
+		02DECE271A05B04A00C85949 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				023AE5651A04939300A3A789 /* Base */,
+				02DECE281A05B04A00C85949 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

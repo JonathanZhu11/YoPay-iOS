@@ -11,6 +11,7 @@
 @interface SummaryViewController : UIViewController
 
 @property NSArray *array;
-@property double totalPrice;
+@property NSArray *colorArray;
+@property double personPrice;
 
 @end
